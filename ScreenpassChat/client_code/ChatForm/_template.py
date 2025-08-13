@@ -23,7 +23,6 @@ class ChatTemplate(HtmlPanel):
         
         # Chat area
         self.chat_area = RichText(
-            height=400,
             content="<p><strong>Screenpass:</strong> Initializing chat...</p>",
             enable_slots=False
         )

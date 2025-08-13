@@ -113,15 +113,8 @@ class ChatForm(ChatTemplate):
         
         self.chat_area.content = current_content + message_html
         
-        # Scroll to bottom (simulate)
-        anvil.js.call('setTimeout', lambda: self.scroll_chat_to_bottom(), 100)
         
-    def scroll_chat_to_bottom(self):
-        """Scroll chat area to bottom"""
-        try:
-            anvil.js.call('document.querySelector', '.anvil-rich-text').scrollTop = anvil.js.call('document.querySelector', '.anvil-rich-text').scrollHeight
-        except:
-            pass
+
             
     def show_status(self, message, status_type):
         """Show a status message"""
