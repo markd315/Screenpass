@@ -1,0 +1,10 @@
+Conversation Log
+Start Time: 2025-08-13 00:26:57.793000-04:00
+End Time: 2025-08-13 00:27:03.701000-04:00
+Lead Source: google
+Company: companyB
+==================================================
+
+>Screenpass: Do you have any questions about the company or the position?
+>Trucker: bruv
+>Screenpass: I'm sorry, I encountered an error. Please try again.

@@ -1,0 +1,12 @@
+Conversation Log
+Start Time: 2025-08-13 00:35:30.405000-04:00
+End Time: 2025-08-13 00:36:39.445000-04:00
+Lead Source: google
+Company: companyB
+==================================================
+
+>Screenpass: Perfect! Are you comfortable being on the road for several nights per week?
+>Trucker: test123
+>Screenpass: I'm sorry, I encountered an error. Please try again.
+>Trucker: ok
+>Screenpass: I'm sorry, I encountered an error. Please try again.

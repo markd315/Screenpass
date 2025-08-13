@@ -1,0 +1,12 @@
+Conversation Log
+Start Time: 2025-08-13 00:43:30.305000-04:00
+End Time: 2025-08-13 00:44:09.012000-04:00
+Lead Source: direct
+Company: companyA
+==================================================
+
+>Screenpass: Excellent! How many years of driving experience do you have?
+>Trucker: test for video
+>Screenpass: I'm sorry, I encountered an error. Please try again.
+>Trucker: ok
+>Screenpass: I'm sorry, I encountered an error. Please try again.

@@ -1,0 +1,12 @@
+Conversation Log
+Start Time: 2025-08-13 00:24:43.407000-04:00
+End Time: 2025-08-13 00:26:23.485000-04:00
+Lead Source: google
+Company: companyB
+==================================================
+
+>Screenpass: That's great! Can you tell me about your CDL and driving experience?
+>Trucker: saknjsajk
+>Screenpass: I'm sorry, I encountered an error. Please try again.
+>Trucker: cool
+>Screenpass: I'm sorry, I encountered an error. Please try again.

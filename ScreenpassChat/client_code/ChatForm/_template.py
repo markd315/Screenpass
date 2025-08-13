@@ -32,7 +32,7 @@ class ChatTemplate(HtmlPanel):
         self.query_input = TextArea(
             placeholder="Type your message here...",
             height=100,
-            width=1000,
+            width=1250,
         )
         self.main_content.add_component(self.query_input)
         
@@ -46,16 +46,16 @@ class ChatTemplate(HtmlPanel):
         # Submit button
         self.submit_btn = Button(
             text="Submit",
-            role="primary-color",
+            role="secondary-color",
             icon="fa:paper-plane",
             spacing_above="small"
         )
         
         # End chat button  
         self.end_chat_btn = Button(
-            text="End Chat",
-            role="secondary-color", 
-            icon="fa:times",
+            text="Finish Application",
+            role="primary-color", 
+            icon="fa:paper-plane",
             spacing_above="small"
         )
         

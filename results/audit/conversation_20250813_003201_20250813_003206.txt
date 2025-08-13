@@ -1,0 +1,10 @@
+Conversation Log
+Start Time: 2025-08-13 00:32:01.197000-04:00
+End Time: 2025-08-13 00:32:06.671000-04:00
+Lead Source: google
+Company: companyB
+==================================================
+
+>Screenpass: Thank you for sharing that information. Based on what you've told me, I think you'd be a great fit for this position!
+>Trucker: ready123
+>Screenpass: I'm sorry, I encountered an error. Please try again.

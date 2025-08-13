@@ -389,10 +389,7 @@ def summarize_conversation(conversation_history, start_time, end_time, lead_sour
             writer = csv.writer(f)
             writer.writerow([
                 datetime.now().isoformat(),
-                company,
-                lead_source,
                 sentiment_score,
-                f"conversation_{timestamp_str}"
             ])
         
         print(f"LLM: Added sentiment analysis (score: {sentiment_score}) to sentiment.csv")
