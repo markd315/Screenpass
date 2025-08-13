@@ -2,7 +2,17 @@
 
 ### you give me screen, I pass screen
 
-### we giver trucker screen, we decide if they pass screen.
+### we give trucker screen, we decide if they pass screen.
+
+## Run instructions:
+```
+pip install -r requirements.txt
+anvil-app-server --app ScreenpassChat --port 8080
+
+visit:
+http://localhost:8080/#leadSource=google&company=companyB
+```
+
 
 #### claude prompt
 

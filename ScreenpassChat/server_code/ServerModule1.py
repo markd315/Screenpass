@@ -181,7 +181,7 @@ def init_conversation(lead_source, company, session_id):
         Key Screening Questions (work these into the conversation naturally):
         1) We need a driver with a valid, unexpired CDL
         2) We need a driver with {yoe_required} years of experience, do not pass drivers who don't fit this requirement.
-        3) This job requires being on the road for {nights_per_week} nights a week. Ask if that is okay?
+        3) This job requires being on the road for {nights_per_week} nights a week. Ask if that is okay.
         """
         
         # Store session data
