@@ -12,7 +12,7 @@ class ChatTemplate(HtmlPanel):
         self.add_component(self.content_panel)
         
         # Title
-        self.title_label = Label(text="🚛 Screenpass Chat", font_size=24, bold=True)
+        self.title_label = Label(text="Screenpass Chat", font_size=24, bold=True)
         self.add_component(self.title_label, slot="title")
         
         # Main card
@@ -23,16 +23,16 @@ class ChatTemplate(HtmlPanel):
         
         # Chat area
         self.chat_area = RichText(
-            content="<p><strong>Screenpass:</strong> Initializing chat...</p>",
+            content=">Screenpass: Initializing chat...",
             enable_slots=False
         )
         self.main_content.add_component(self.chat_area)
         
-        # Input area
+        # Input area - directly below chat area
         self.query_input = TextArea(
-            placeholder="Type your message here... (Press Ctrl+Enter to send quickly)",
+            placeholder="Type your message here...",
             height=100,
-            width="100%"
+            width=1000,
         )
         self.main_content.add_component(self.query_input)
         
@@ -63,6 +63,6 @@ class ChatTemplate(HtmlPanel):
         self.button_panel.add_component(self.end_chat_btn)
         self.main_content.add_component(self.button_panel)
         
-        # Status message
-        self.status_message = Label(text="", visible=False, spacing_above="small")
+        # Status message - below buttons
+        self.status_message = Label(text="", visible=False, spacing_above="medium")
         self.main_content.add_component(self.status_message)

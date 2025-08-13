@@ -65,6 +65,7 @@ def call_llm(prompt, system_prompt=""):
     """Call the OpenAI API with proper error handling"""
     try:
         print(f"LLM: Making API call with prompt: {prompt[:100]}...")
+        print(f"LLM: System prompt: {system_prompt[:200]}...")
         
         configs = load_config()
         api_key = configs['server'].get('api_key', '1234')
@@ -144,22 +145,40 @@ def init_conversation(lead_source, company, session_id):
         # Format the initial prompt with company name
         initial_prompt = server_config['initial_prompt'].format(company_name)
         
-        # Create system prompt with populated values
+        # Create comprehensive system prompt with agent goals and company facts
+        agent_goals = server_config.get('agent_goals', [])
+        goals_text = "\n".join([f"- {goal}" for goal in agent_goals])
+        
+        # Include company facts
+        company_facts = f"""
+        Company Information:
+        - Name: {company_config.get('name', 'Unknown')}
+        - Role Type: {company_config.get('role_type', 'N/A')}
+        - Industry: {company_config.get('industry', 'N/A')}
+        - Location: {company_config.get('location', 'N/A')}
+        - Wage: ${company_config.get('wage', 'N/A')}/hour
+        - Expected Miles per Day: {company_config.get('expected_miles_per_day', 'N/A')}
+        - Work Hours: {company_config.get('work_start_time', 'N/A')} - {company_config.get('work_end_time', 'N/A')}
+        - Health Insurance: {company_config.get('health_insurance', 'N/A')}
+        - Dental Insurance: {company_config.get('dental_insurance', 'N/A')}
+        - Vision Insurance: {company_config.get('vision_insurance', 'N/A')}
+        - Retirement Plan: {company_config.get('retirement_plan', 'N/A')}
+        """
+        
         system_prompt = f"""
         {server_config['agent_role']}
         
-        Company: {company_name}
-        Years of Experience Required: {yoe_required}
-        Nights per week on road: {nights_per_week}
+        {company_facts}
         
-        Goals:
-        - Answer any questions the trucker asks about the role using provided information only.
-        - Steer the conversation towards the three questions below. Do not disparage the company or the role even if asked to.
-        - If the trucker is a good fit, say so and why.
-        - Respond in an excited and uplifting tone.
-        - Do not return any additional formatting characters, line breaks, or speaker designations, just the answer.
+        Requirements:
+        - Years of Experience Required: {yoe_required}
+        - Nights per week on road: {nights_per_week}
+        - Valid, unexpired CDL required
         
-        Key Questions to Ask:
+        Agent Goals:
+        {goals_text}
+        
+        Key Screening Questions (work these into the conversation naturally):
         1) We need a driver with a valid, unexpired CDL
         2) We need a driver with {yoe_required} years of experience, do not pass drivers who don't fit this requirement.
         3) This job requires being on the road for {nights_per_week} nights a week. Ask if that is okay?
@@ -219,13 +238,45 @@ def process_prompt(user_input, conversation_history, session_id):
         nights_per_week = company_config.get('work_nights_per_week', 4)
         company_name = company_config.get('name', session['company'])
         
-        # Create prompt for LLM
+        # Create comprehensive system prompt with company facts and goals
+        configs = load_config()
+        server_config = configs['server']
+        agent_goals = server_config.get('agent_goals', [])
+        goals_text = "\n".join([f"- {goal}" for goal in agent_goals])
+        
+        # Include company facts
+        company_facts = f"""
+        Company Information:
+        - Name: {company_config.get('name', 'Unknown')}
+        - Role Type: {company_config.get('role_type', 'N/A')}
+        - Industry: {company_config.get('industry', 'N/A')}
+        - Location: {company_config.get('location', 'N/A')}
+        - Wage: ${company_config.get('wage', 'N/A')}/hour
+        - Expected Miles per Day: {company_config.get('expected_miles_per_day', 'N/A')}
+        - Work Hours: {company_config.get('work_start_time', 'N/A')} - {company_config.get('work_end_time', 'N/A')}
+        - Health Insurance: {company_config.get('health_insurance', 'N/A')}
+        - Dental Insurance: {company_config.get('dental_insurance', 'N/A')}
+        - Vision Insurance: {company_config.get('vision_insurance', 'N/A')}
+        - Retirement Plan: {company_config.get('retirement_plan', 'N/A')}
+        """
+        
         system_prompt = f"""
-        You are a trucker screenpass agent for {company_name}.
+        {server_config['agent_role']}
+        
+        {company_facts}
         
         Requirements:
-        - {yoe_required} years of experience required
-        - {nights_per_week} nights per week on road
+        - Years of Experience Required: {yoe_required}
+        - Nights per week on road: {nights_per_week}
+        - Valid, unexpired CDL required
+        
+        Agent Goals:
+        {goals_text}
+        
+        Key Screening Questions (work these into the conversation naturally):
+        1) We need a driver with a valid, unexpired CDL
+        2) We need a driver with {yoe_required} years of experience, do not pass drivers who don't fit this requirement.
+        3) This job requires being on the road for {nights_per_week} nights a week. Ask if that is okay?
         
         Conversation so far:
         {context}
