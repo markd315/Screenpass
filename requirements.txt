@@ -1,0 +1,9 @@
+requests
+MLB-StatsAPI
+pandas~=1.4.3
+tabulate~=0.8.10
+anvil-uplink
+jsbeautifier
+numpy~=1.23.2
+pymongo
+selenium

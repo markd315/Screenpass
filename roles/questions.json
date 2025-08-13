@@ -1,0 +1,27 @@
+{
+    "questions": [
+        {
+            "question": "What is your name?"
+        },
+        {
+            "question": "Do you have a valid Commercial Driver's License (CDL)?",
+            "passing_answer": "We are looking for a CDL driver, return False if the driver said they don't have a CDL above."
+        },
+        {
+            "question": "What is your CDL number?",
+            "valid_answers": ["1234567890", "12345678901234567890", "1234567890123456789012345678901234567890"]
+        },
+        {
+            "question": "What is your CDL expiration date?",
+            "valid_answers": ["01/01/2025", "01/01/2025", "01/01/2025"]
+        },
+        {
+            "question": "What is your CDL class?",
+            "valid_answers": ["A", "B", "C"]
+        },
+        {
+            "question": "What is your CDL endorsement?",
+            "valid_answers": ["Tanker", "Double/Triple", "Hazmat", "Passenger", "School Bus", "Other"]
+        }
+    ]
+}
